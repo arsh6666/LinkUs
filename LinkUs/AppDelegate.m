@@ -16,6 +16,32 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-60, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
+    UIViewController *VC;
+    
+   
+    bool logged = [[NSUserDefaults standardUserDefaults]boolForKey:@"LoggedUser"];
+    
+    if(logged == YES)
+    {
+        VC = [mainStoryboard instantiateViewControllerWithIdentifier:@"tabViewController"];
+    }
+    else{
+        VC = [mainStoryboard instantiateViewControllerWithIdentifier:@"nav"];
+        
+    }
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = VC;
+    [self.window makeKeyAndVisible];
+    
+   // [UINavigationBar appearance].barTintColor = [UIColor yellowColor];
     // Override point for customization after application launch.
     return YES;
 }
@@ -47,5 +73,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+
+AppDelegate *appDelegate (void)
+{
+    return [[UIApplication sharedApplication]delegate];
+}
 
 @end
