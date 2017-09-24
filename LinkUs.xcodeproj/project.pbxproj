@@ -61,6 +61,9 @@
 		FC57711A1F4B569C00B3B37B /* ServiceProviderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5771191F4B569C00B3B37B /* ServiceProviderVC.m */; };
 		FC57711C1F4B5CA900B3B37B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = FC57711B1F4B5CA900B3B37B /* back.png */; };
 		FC57711E1F4B5EFF00B3B37B /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = FC57711D1F4B5EFF00B3B37B /* search.png */; };
+		FC75FD4E1F78503200521B4A /* JobImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC75FD4D1F78503200521B4A /* JobImageCollectionCell.m */; };
+		FC982D101F782D3A007F34C6 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC982D0F1F782D3A007F34C6 /* ImageTableViewCell.m */; };
+		FC982D141F782D9C007F34C6 /* JobDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC982D131F782D9C007F34C6 /* JobDetailTableViewCell.m */; };
 		FCE935D61F4B6A6000C8ECF2 /* filledStar.png in Resources */ = {isa = PBXBuildFile; fileRef = FCE935D41F4B6A6000C8ECF2 /* filledStar.png */; };
 		FCE935D71F4B6A6000C8ECF2 /* unfillStar.png in Resources */ = {isa = PBXBuildFile; fileRef = FCE935D51F4B6A6000C8ECF2 /* unfillStar.png */; };
 		FCE935D91F4B6F6700C8ECF2 /* Calibri Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCE935D81F4B6F6700C8ECF2 /* Calibri Bold.ttf */; };
@@ -165,6 +168,12 @@
 		FC5771191F4B569C00B3B37B /* ServiceProviderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceProviderVC.m; path = ServiceProviderVC/ServiceProviderVC.m; sourceTree = "<group>"; };
 		FC57711B1F4B5CA900B3B37B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		FC57711D1F4B5EFF00B3B37B /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		FC75FD4C1F78503200521B4A /* JobImageCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobImageCollectionCell.h; sourceTree = "<group>"; };
+		FC75FD4D1F78503200521B4A /* JobImageCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobImageCollectionCell.m; sourceTree = "<group>"; };
+		FC982D0E1F782D3A007F34C6 /* ImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		FC982D0F1F782D3A007F34C6 /* ImageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		FC982D121F782D9C007F34C6 /* JobDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobDetailTableViewCell.h; sourceTree = "<group>"; };
+		FC982D131F782D9C007F34C6 /* JobDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobDetailTableViewCell.m; sourceTree = "<group>"; };
 		FCE935D41F4B6A6000C8ECF2 /* filledStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filledStar.png; sourceTree = "<group>"; };
 		FCE935D51F4B6A6000C8ECF2 /* unfillStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unfillStar.png; sourceTree = "<group>"; };
 		FCE935D81F4B6F6700C8ECF2 /* Calibri Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibri Bold.ttf"; sourceTree = "<group>"; };
@@ -246,6 +255,7 @@
 		FC4E4C901F45A4DF005258D5 /* LinkUs */ = {
 			isa = PBXGroup;
 			children = (
+				FC982D0C1F782CDA007F34C6 /* Cell */,
 				FC5770D41F472D6A00B3B37B /* Constants */,
 				FC5770CC1F472C6300B3B37B /* Utilities */,
 				FC5770C31F472C3000B3B37B /* MVC */,
@@ -454,6 +464,43 @@
 				FC5771191F4B569C00B3B37B /* ServiceProviderVC.m */,
 			);
 			name = ServiceProviderVC;
+			sourceTree = "<group>";
+		};
+		FC982D0C1F782CDA007F34C6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FC982D151F782E28007F34C6 /* JobImageCollectionCell */,
+				FC982D111F782D84007F34C6 /* JobDetailTableViewCell */,
+				FC982D0D1F782D12007F34C6 /* ImageTableViewCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FC982D0D1F782D12007F34C6 /* ImageTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FC982D0E1F782D3A007F34C6 /* ImageTableViewCell.h */,
+				FC982D0F1F782D3A007F34C6 /* ImageTableViewCell.m */,
+			);
+			path = ImageTableViewCell;
+			sourceTree = "<group>";
+		};
+		FC982D111F782D84007F34C6 /* JobDetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FC982D121F782D9C007F34C6 /* JobDetailTableViewCell.h */,
+				FC982D131F782D9C007F34C6 /* JobDetailTableViewCell.m */,
+			);
+			path = JobDetailTableViewCell;
+			sourceTree = "<group>";
+		};
+		FC982D151F782E28007F34C6 /* JobImageCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				FC75FD4C1F78503200521B4A /* JobImageCollectionCell.h */,
+				FC75FD4D1F78503200521B4A /* JobImageCollectionCell.m */,
+			);
+			path = JobImageCollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -777,10 +824,13 @@
 				FC5770DB1F4788C000B3B37B /* ForgetPasswordVC.m in Sources */,
 				FC5770CA1F472C3000B3B37B /* ASLoginVC.m in Sources */,
 				FC5770D11F472C6300B3B37B /* UIImage+animatedGIF.m in Sources */,
+				FC75FD4E1F78503200521B4A /* JobImageCollectionCell.m in Sources */,
 				FC5771161F4B566700B3B37B /* JobsListVC.m in Sources */,
+				FC982D141F782D9C007F34C6 /* JobDetailTableViewCell.m in Sources */,
 				FC5770DF1F478F5E00B3B37B /* HomeVC.m in Sources */,
 				FC5771121F4B563700B3B37B /* NeedServiceVC.m in Sources */,
 				FC57710C1F48E0E800B3B37B /* ProfileVC.m in Sources */,
+				FC982D101F782D3A007F34C6 /* ImageTableViewCell.m in Sources */,
 				FC57711A1F4B569C00B3B37B /* ServiceProviderVC.m in Sources */,
 				FC5770CB1F472C3000B3B37B /* ASSignUpVC.m in Sources */,
 				FC5770E31F4790D900B3B37B /* SettingVC.m in Sources */,

@@ -9,6 +9,7 @@
 #import "NeedServiceVC.h"
 
 @interface NeedServiceVC ()
+@property (strong, nonatomic) IBOutlet UITableView *tblService;
 
 @end
 

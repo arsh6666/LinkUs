@@ -17,14 +17,24 @@
 #import "Utils.h"
 #import "AppDelegate.h"
 
-
-
 //>>>>>>> Define View Controller <<<<<<<<//
 
 #import "ASLoginVC.h"
 #import "ASSignUpVC.h"
 #import "ForgetPasswordVC.h"
 #import "ViewController.h"
+#import "ServiceProviderVC.h"
+#import "JobsListVC.h"
+#import "NeedServiceVC.h"
+#import "ProfileVC.h"
+#import "SettingVC.h"
+#import "HomeVC.h"
+
+//>>>>>> Define Custom Cell <<<<<<<<<<//
+
+#import "JobDetailTableViewCell.h"
+#import "ImageTableViewCell.h"
+#import "JobImageCollectionCell.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

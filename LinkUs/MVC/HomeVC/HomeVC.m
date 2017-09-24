@@ -14,10 +14,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnService;
 @property (strong, nonatomic) IBOutlet UIButton *btnJobs;
 @property (strong, nonatomic) IBOutlet UIButton *btnNeedService;
+
 - (IBAction)btnNeedService:(id)sender;
 - (IBAction)btnJobs:(id)sender;
 - (IBAction)btnProvider:(id)sender;
-
 - (IBAction)btnPlumbing:(id)sender;
 - (IBAction)btnPestControl:(id)sender;
 - (IBAction)btnLandscaping:(id)sender;
@@ -52,6 +52,27 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)categoryDefineMethod:(NSInteger)catID {
+    
+    if (self.btnNeedService.selected == YES)
+    {
+        NeedServiceVC *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"NeedServiceVC"];
+        [self.navigationController pushViewController:nvc animated:YES];
+        
+    }
+    else if (self.btnService.selected == YES){
+        ServiceProviderVC *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ServiceProviderVC"];
+        [self.navigationController pushViewController:svc animated:YES];
+    }
+    else{
+        JobsListVC *jvc = [self.storyboard instantiateViewControllerWithIdentifier:@"JobsListVC"];
+        [self.navigationController pushViewController:jvc animated:YES];
+    }
+}
+
+
+#pragma mark -Define Action
 
 - (IBAction)btnNeedService:(UIButton *)sender {
     
@@ -92,6 +113,7 @@
 }
 
 - (IBAction)btnPlumbing:(id)sender {
+    [self categoryDefineMethod:0];
 }
 
 - (IBAction)btnPestControl:(id)sender {
@@ -117,4 +139,5 @@
 
 - (IBAction)btnMISC:(id)sender {
 }
+
 @end
