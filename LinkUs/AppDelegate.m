@@ -32,6 +32,9 @@
     if(logged == YES)
     {
         VC = [mainStoryboard instantiateViewControllerWithIdentifier:@"tabViewController"];
+        self.userID = [[NSUserDefaults standardUserDefaults]valueForKey:@"UserID"];
+        self.userProfile = [[NSUserDefaults standardUserDefaults]valueForKey:@"UserProfile"];
+        
     }
     else{
         VC = [mainStoryboard instantiateViewControllerWithIdentifier:@"nav"];

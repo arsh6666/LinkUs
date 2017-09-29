@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageTableViewCell : UITableViewCell
+@interface ImageTableViewCell : UITableViewCell<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (strong, nonatomic) IBOutlet UICollectionView *imageCollectionView;
 @property (strong, nonatomic) IBOutlet UIButton *btnAdd;
-
+@property (strong, nonatomic) NSMutableArray *ImageArray;
 @end

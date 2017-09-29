@@ -86,17 +86,18 @@
         {
             [Utils okAlert:@"Message" message:[responseObject valueForKey:@"ErrorList"][0]];
         }
-        else{
-        appDelegate().userID = [responseObject valueForKey:@"UserId"];
-        
+        else
+        {
+            appDelegate().userID = [responseObject valueForKey:@"UserId"];
     
-        NSDictionary *dictWithoutNull = [Utils dictionaryByReplacingNullsWithStrings:[responseObject valueForKey:@"UserProfile"]];
-        [[NSUserDefaults standardUserDefaults]setObject:dictWithoutNull forKey:@"UserProfile"];
+            NSDictionary *dictWithoutNull = [Utils dictionaryByReplacingNullsWithStrings:[responseObject valueForKey:@"UserProfile"]];
+            
+            [[NSUserDefaults standardUserDefaults]setObject:dictWithoutNull forKey:@"UserProfile"];
+            [[NSUserDefaults standardUserDefaults]setObject:appDelegate().userID forKey:@"UserID"];
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LoggedUser"];
         
-        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LoggedUser"];
-        
-        [self performSegueWithIdentifier:@"TabView" sender:sender];
-        NSLog(@"success!");
+            [self performSegueWithIdentifier:@"TabView" sender:sender];
+            NSLog(@"success!");
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
@@ -107,7 +108,7 @@
          NSLog(@"%ld",(long)[response statusCode]);
          NSData *dict2 = [error.userInfo valueForKey:@"com.alamofire.serialization.response.error.data"];
          NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict2 options:0 error:NULL];
-         
+         NSString *string = [[NSString alloc] initWithData:dict2 encoding:NSUTF8StringEncoding];
          
          [MBProgressHUD hideHUDForView:self.view animated:YES];
          [Utils okAlert:@"OOPS" message:[[[responseDict valueForKey:@"description"]objectAtIndex:0]valueForKey:@"message"]];
@@ -130,12 +131,14 @@
     
 }
     
-- (IBAction)btnAgree:(UIButton *)sender {
-    
-    if (sender.selected == YES) {
+- (IBAction)btnAgree:(UIButton *)sender
+{
+    if (sender.selected == YES)
+    {
         sender.selected = NO;
     }
-    else{
+    else
+    {
         sender.selected = YES;
     }
 }

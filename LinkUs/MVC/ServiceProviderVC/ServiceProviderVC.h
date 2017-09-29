@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ServiceProviderVC : UIViewController
+@property (nonatomic,readwrite)NSInteger CatId;
 
 @end

@@ -8,8 +8,11 @@
 
 #import "ServiceProviderVC.h"
 
-@interface ServiceProviderVC ()
+@interface ServiceProviderVC (){
+    NSMutableArray *providerArray;
+}
 - (IBAction)btnBack:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *tblProvider;
 
 @end
 
@@ -17,17 +20,62 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    NSLog(@"%@",appDelegate().userID);
+    
+    NSDictionary *parmDict = @{
+
+                               @"CategoryId": [NSNumber numberWithInteger:self.CatId],
+                               
+                               };
+    
+    [manager POST:GetProviders parameters:parmDict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        if ([responseObject valueForKey:K_Result] == [NSNumber numberWithBool:true])
+        {
+            providerArray = [responseObject valueForKey:@"Users"];
+            [self.tblProvider reloadData];
+            NSLog(@"success!");
+        }
+        else
+        {
+            
+            
+        }
+        
+    }
+          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+     {
+         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+         
+         [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"LoggedUser"];
+         NSLog(@"%ld",(long)[response statusCode]);
+         NSData *dict2 = [error.userInfo valueForKey:@"com.alamofire.serialization.response.error.data"];
+         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict2 options:0 error:NULL];
+         NSString *string = [[NSString alloc] initWithData:dict2 encoding:NSUTF8StringEncoding];
+         
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
+         [Utils okAlert:@"OOPS" message:[[[responseDict valueForKey:@"description"]objectAtIndex:0]valueForKey:@"message"]];
+         NSLog(@"error: %@", error);
+     }];
     // Do any additional setup after loading the view.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 5;
+    return providerArray.count;
     
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    ProfilesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    cell.lblName.text = [[providerArray valueForKey:@"FirstName"]objectAtIndex:indexPath.row];
     return cell;
     
 }

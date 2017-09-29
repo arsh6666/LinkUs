@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface JobsListVC : UIViewController
-
+@property (nonatomic,readwrite)NSInteger CatId;
 @end

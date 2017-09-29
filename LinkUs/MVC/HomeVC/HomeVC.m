@@ -34,6 +34,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+   // NSLog(@"%@",appDelegate().userProfile);
+   // NSLog(@"%@",appDelegate().userID);
     self.btnNeedService.selected = YES;
     // Do any additional setup after loading the view.
 }
@@ -58,15 +61,21 @@
     if (self.btnNeedService.selected == YES)
     {
         NeedServiceVC *nvc = [self.storyboard instantiateViewControllerWithIdentifier:@"NeedServiceVC"];
+        nvc.CatId = catID;
         [self.navigationController pushViewController:nvc animated:YES];
         
     }
-    else if (self.btnService.selected == YES){
+    else if (self.btnService.selected == YES)
+    {
         ServiceProviderVC *svc = [self.storyboard instantiateViewControllerWithIdentifier:@"ServiceProviderVC"];
+        svc.CatId = catID;
         [self.navigationController pushViewController:svc animated:YES];
     }
-    else{
+    else
+    
+    {
         JobsListVC *jvc = [self.storyboard instantiateViewControllerWithIdentifier:@"JobsListVC"];
+        jvc.CatId = catID;
         [self.navigationController pushViewController:jvc animated:YES];
     }
 }
@@ -83,8 +92,6 @@
         self.btnService.selected = NO;
         
     }
-    
-    
 }
 
 - (IBAction)btnJobs:(UIButton *)sender {
@@ -113,31 +120,39 @@
 }
 
 - (IBAction)btnPlumbing:(id)sender {
-    [self categoryDefineMethod:0];
+    [self categoryDefineMethod:1];
 }
 
 - (IBAction)btnPestControl:(id)sender {
+    [self categoryDefineMethod:2];
 }
 
 - (IBAction)btnLandscaping:(id)sender {
+    [self categoryDefineMethod:3];
 }
 
 - (IBAction)btnPainting:(id)sender {
+    [self categoryDefineMethod:4];
 }
 
 - (IBAction)btnCleaning:(id)sender {
+    [self categoryDefineMethod:5];
 }
 
 - (IBAction)btnElectrical:(id)sender {
+    [self categoryDefineMethod:6];
 }
 
 - (IBAction)btnHandiman:(id)sender {
+    [self categoryDefineMethod:9];
     
 }
 - (IBAction)btnHVAC:(id)sender {
+    [self categoryDefineMethod:7];
 }
 
 - (IBAction)btnMISC:(id)sender {
+    [self categoryDefineMethod:8];
 }
 
 @end

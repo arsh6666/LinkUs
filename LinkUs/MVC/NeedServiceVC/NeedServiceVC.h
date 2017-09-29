@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface NeedServiceVC : UIViewController
-
+@property (nonatomic,readwrite)NSInteger CatId;
 @end

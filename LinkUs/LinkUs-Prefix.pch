@@ -13,6 +13,8 @@
 #import "MBProgressHUD.h"
 #import "AFNetworking.h"
 #import "AsyncImageView.h"
+#import "CLImageEditor.h"
+
 #import "Constants.h"
 #import "Utils.h"
 #import "AppDelegate.h"
@@ -29,12 +31,15 @@
 #import "ProfileVC.h"
 #import "SettingVC.h"
 #import "HomeVC.h"
+#import "JobDetailViewController.h"
 
 //>>>>>> Define Custom Cell <<<<<<<<<<//
 
 #import "JobDetailTableViewCell.h"
 #import "ImageTableViewCell.h"
 #import "JobImageCollectionCell.h"
+#import "JobsListTableViewCell.h"
+#import "ProfilesTableViewCell.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.

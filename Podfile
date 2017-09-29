@@ -10,7 +10,7 @@ target 'LinkUs' do
     pod 'EDStarRating'
     pod 'MBProgressHUD'
     pod 'AsyncImageView'
-    
+    pod 'CLImageEditor'
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 

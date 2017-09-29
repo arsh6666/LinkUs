@@ -100,7 +100,7 @@
         
             [[NSUserDefaults standardUserDefaults]setObject:dictWithoutNull forKey:@"UserProfile"];
         
-            appDelegate().userProfile = responseObject;
+            appDelegate().userProfile = dictWithoutNull;
             appDelegate().userID = [responseObject valueForKey:@"UserId"];
             [[NSUserDefaults standardUserDefaults]setObject:appDelegate().userID forKey:@"UserID"];
             

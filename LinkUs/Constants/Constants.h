@@ -20,10 +20,10 @@
 #define Register                (BaseURL @"account/Register")
 #define ForgotPassword          (BaseURL @"Account/ForgotPassword")
 #define ResetPassword           (BaseURL @"Account/ResetPassword")
-#define Category                (BaseURL @"Category")
-#define Job                     (BaseURL @"Job")
-#define BudgetType              (BaseURL @"BudgetType")
 #define ConfirmEmail            (BaseURL @"ConfirmEmail")
+#define GetJobs                 (BaseURL @"Job/GetJobs")
+#define Create                  (BaseURL @"Job/Create")
+#define GetProviders                  (BaseURL @"Job/GetProviders")
 
 //>>    Result Keys
 #define K_Result            @"Success"
